@@ -1,29 +1,33 @@
-<script setup>
-import { ref } from 'vue'
-import Login from './Login.vue'
-import Register from './Register.vue'
+<script setup lang="ts">
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import { user, clearSession } from './auth'
 
-const halaman = ref('login')
-const user = ref(JSON.parse(localStorage.getItem('user')))
+const router = useRouter()
 
 function logout() {
-  localStorage.removeItem('user')
-  user.value = null
+  clearSession()
+  router.push('/login')
 }
 </script>
 
 <template>
-  <div v-if="user">
-    <h2>Halo, {{ user.full_name }}</h2>
-    <p>Email: {{ user.email }} | Role: {{ user.role }}</p>
-    <button @click="logout">Logout</button>
-  </div>
+  <nav style="display: flex; gap: 12px; align-items: center">
+    <RouterLink to="/products">Produk</RouterLink>
 
-  <div v-else>
-    <button @click="halaman = 'login'">Login</button>
-    <button @click="halaman = 'register'">Register</button>
+    <template v-if="user">
+      <RouterLink to="/cart">Keranjang</RouterLink>
+      <RouterLink to="/addresses">Alamat</RouterLink>
+      <span>Halo, {{ user.full_name }} ({{ user.role }})</span>
+      <button @click="logout">Logout</button>
+    </template>
 
-    <Login v-if="halaman === 'login'" @login-success="user = $event" />
-    <Register v-else />
-  </div>
+    <template v-else>
+      <RouterLink to="/login">Login</RouterLink>
+      <RouterLink to="/register">Register</RouterLink>
+    </template>
+  </nav>
+
+  <hr />
+
+  <RouterView />
 </template>

@@ -1,52 +1,85 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* color palette from DESIGN.md: blue + white, clean, eyecatching through restraint */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
 
-  --vt-c-indigo: #2c3e50;
+  --color-red-500: #ef4444;
+  --color-red-50: #fef2f2;
+  --color-green-500: #22c55e;
+  --color-green-50: #f0fdf4;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --color-background: #ffffff;
+  --color-surface: var(--color-slate-50);
+  --color-surface-raised: #ffffff;
+  --color-primary: var(--color-blue-600);
+  --color-primary-hover: var(--color-blue-700);
+  --color-primary-subtle: var(--color-blue-50);
+  --color-text: var(--color-slate-800);
+  --color-text-secondary: var(--color-slate-500);
+  --color-text-on-primary: #ffffff;
+  --color-border: var(--color-slate-200);
+  --color-border-focus: var(--color-blue-500);
+  --color-input-bg: #ffffff;
+  --color-error: var(--color-red-500);
+  --color-error-bg: var(--color-red-50);
+  --color-success: var(--color-green-500);
+  --color-success-bg: var(--color-green-50);
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+    --color-background: var(--color-slate-900);
+    --color-surface: var(--color-slate-800);
+    --color-surface-raised: var(--color-slate-700);
+    --color-primary: var(--color-blue-400);
+    --color-primary-hover: var(--color-blue-500);
+    --color-primary-subtle: rgba(59, 130, 246, 0.12);
+    --color-text: var(--color-slate-100);
+    --color-text-secondary: var(--color-slate-400);
+    --color-text-on-primary: var(--color-slate-900);
+    --color-border: var(--color-slate-600);
+    --color-border-focus: var(--color-blue-400);
+    --color-input-bg: var(--color-slate-800);
+    --color-error-bg: rgba(239, 68, 68, 0.12);
+    --color-success-bg: rgba(34, 197, 94, 0.12);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -55,16 +88,12 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
 }
 
 body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
   line-height: 1.6;
   font-family:
     Inter,
